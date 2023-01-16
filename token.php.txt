@@ -1,0 +1,20 @@
+
+  <?php
+    $secret = '79ca60de0b30f26b';
+    $path = '/test/pull.stream/chunks.m3u8';
+    $expires = time() + 300;
+    $md5 = base64_encode(md5($expires . $path . ' ' . $secret, true));
+    $md5 = strtr($md5, '+/', '-_');
+    $md5 = str_replace('=', '', $md5);
+    $token = "md5=$md5&expires=$expires";
+
+    //use "$hls" to initialize player
+    $hls = "https://iframes.5centscdn.com/5centscdn/hls/skin1/59vul7na1888cmp3/aHR0cHM6Ly9qN21kNWVwNGRyd3YtaGxzLWxpdmUuNWNlbnRzY2RuLmNvbS90ZXN0L3B1bGwuc3RyZWFtL2NodW5rcy5tM3U4?showcv=true&title=test/pull&{$token}";
+    ?>
+
+  <!-- Add following section in the page's <body> tag, where you need the player to be shown -->
+  <div  style="width:100%;height:100%">
+    <iframe src="<?php echo $hls; ?>"
+      frameBorder="0" allow="autoplay; encrypted-media" allowfullscreen
+      style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px"></iframe>
+  </div>
