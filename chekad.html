@@ -1,0 +1,35 @@
+<!-- Add following section in the page's <head> tag -->
+<style type="text/css">
+.player-frame-wrapper {
+position: relative;
+width: 100%;
+}
+
+.flowplayer.is-live .fp-timeline {
+    visibility: visible!important;
+}
+.player-frame-wrapper-ratio {
+/* same as player ratio */
+padding-top: 41.67%;
+}
+
+.player-frame {
+/* make iframe fill wrapper */
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+border: none;
+}
+</style>
+
+<!-- Add following section in the page's <body> tag, where you need the player to be shown -->
+<div class="player-frame-wrapper">
+
+<iframe src="https://iframes.5centscdn.com/flowplayer/hls/aHR0cHM6Ly83ejJvejNyd245bHgtaGxzLXB1c2guNWNlbnRzY2RuLmNvbS9WaWRlb18xLm1wNC9wbGF5bGlzdC5tM3U4"
+class="player-frame"
+allowfullscreen></iframe>
+
+<div class="player-frame-wrapper-ratio"></div>
+</div>
